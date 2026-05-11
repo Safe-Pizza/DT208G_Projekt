@@ -28,6 +28,7 @@ mat-icon {
 
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 table {
@@ -48,4 +49,12 @@ table {
         padding: 10px;
         border-bottom: 1px solid lightgray;
     }
+}
+
+.nobr {
+    white-space: nowrap;
+}
+
+button {
+    @include variables.button;
 }

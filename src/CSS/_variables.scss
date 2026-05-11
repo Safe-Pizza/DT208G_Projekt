@@ -18,3 +18,14 @@ $font-color-dark: #FAFAFA;
 $heading-color-dark: #EBEBEB;
 $accent-color-dark: #DF7F01;
 $accent-second-dark: #C547FF;
+
+@mixin button {
+    min-width: 75px;
+    padding: 1em;
+    background-color: $accent-color;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
