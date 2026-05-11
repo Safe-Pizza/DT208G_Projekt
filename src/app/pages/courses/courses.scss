@@ -1,0 +1,5 @@
+@use '../../../CSS/variables';
+
+mat-icon {
+    color: variables.$accent-color;
+}

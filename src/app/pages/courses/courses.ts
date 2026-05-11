@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CoursesService } from '../../services/courses-service';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-courses',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './courses.html',
   styleUrl: './courses.scss',
 })

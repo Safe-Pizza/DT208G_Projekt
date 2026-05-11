@@ -1,5 +1,30 @@
-<p>courses works!</p>
+<h2>Kurser</h2>
+<input type="text" placeholder="Sök efter kurs...">
+<select>
+</select>
 
-@for (course of courses(); track course.courseCode) {
-    <p>{{ course.courseCode }}</p>
-}
+<table>
+    <thead>
+        <tr>
+            <th>Kurskod</th>
+            <th>Kursnamn</th>
+            <th>Poäng</th>
+            <th>Ämne</th>
+            <th>Kursplan</th>
+            <th>Lägg till</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (course of courses(); track course.courseCode) {
+        <tr>
+            <td>{{ course.courseCode }}</td>
+            <td>{{ course.courseName }}</td>
+            <td>{{ course.points }}</td>
+            <td>{{ course.subject }}</td>
+            <td><a href="{{ course.syllabus }}" traget="_blank"><mat-icon>open_in_new</mat-icon></a></td>
+            <td><button>Lägg till</button></td>
+        </tr>
+        }
+
+    </tbody>
+</table>
