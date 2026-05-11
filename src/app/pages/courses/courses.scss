@@ -1,5 +1,30 @@
 @use '../../../CSS/variables';
+@use 'sass:color';
 
 mat-icon {
     color: variables.$accent-color;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table {
+    thead {
+        text-align: left;
+        border-bottom: 1px solid lightgray;
+    }
+
+    th {
+        padding-right: 10px;
+    }
+
+    tbody tr:hover {
+        background-color: lavenderblush;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid lightgray;
+    }
 }
