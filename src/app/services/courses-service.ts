@@ -1,13 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, Signal } from '@angular/core';
-import { Course } from '../../interfaces/course';
+import { inject, Injectable, Signal } from '@angular/core';
+import { Course } from '../interfaces/course';
 import { toSignal } from '@angular/core/rxjs-interop';
 
-@Component({
-  selector: 'app-courses-service',
-  imports: [],
-  templateUrl: './courses-service.html',
-  styleUrl: './courses-service.scss',
+@Injectable({
+  providedIn: 'root',
 })
 export class CoursesService {
 

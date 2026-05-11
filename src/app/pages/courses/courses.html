@@ -1,1 +1,5 @@
 <p>courses works!</p>
+
+@for (course of courses(); track course.courseCode) {
+    <p>{{ course.courseCode }}</p>
+}
