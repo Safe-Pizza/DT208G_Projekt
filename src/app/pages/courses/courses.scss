@@ -1,6 +1,27 @@
 @use '../../../CSS/variables';
 @use 'sass:color';
 
+input {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+    font-size: 0.8em;
+    margin-right: 1em;
+}
+
+select {
+    width: 40%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+    font-size: 0.8em;
+}
+
 mat-icon {
     color: variables.$accent-color;
 }

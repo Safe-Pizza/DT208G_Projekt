@@ -1,5 +1,11 @@
 <h2>Kurser</h2>
-<input type="text" placeholder="Sök efter kurs...">
+<input 
+    type="text" 
+    id="search" 
+    placeholder="Sök efter kurs..." 
+    [value]="searchInput()"
+    (input)="searchInput.set($any($event.target).value)"
+    >
 <select>
 </select>
 
@@ -15,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (course of courses(); track course.courseCode) {
+        @for (course of coursesFiltered(); track course.courseCode) {
         <tr>
             <td>{{ course.courseCode }}</td>
             <td>{{ course.courseName }}</td>
