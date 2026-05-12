@@ -2,7 +2,6 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { CoursesService } from '../../services/courses-service';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { Course } from '../../interfaces/course';
 import { CourseschemaService } from '../../services/courseschema-service';
 
 @Component({
@@ -17,12 +16,14 @@ export class Courses {
   coursesService = inject(CoursesService);
   courseschemaService = inject(CourseschemaService)
 
+
   //hämtar kurserna från service
   courses = this.coursesService.getCourses();
 
   //variabler för antal kurser
   allCourses: number = 0; //totalt antal kurser
   counter: number = 0; //antal visade kurser
+
 
   //sökinput
   searchInput = signal("");
@@ -40,17 +41,11 @@ export class Courses {
       c.courseName.toLowerCase().includes(search) ||
       c.courseCode.toLowerCase().includes(search)
     );
-        this.counter = filteredSearch.length;
-        return filteredSearch;
+    this.counter = filteredSearch.length;
+    return filteredSearch;
   })
 
   optionInput = signal("");
-
-  coursesFilteredBySubject = computed(() => {
-    const option = this.optionInput().trim().toLowerCase();
-
-    console.log(option);
-  })
 
   //räknade för sorteringsordning
   codeClickCount = 0;
@@ -82,13 +77,13 @@ export class Courses {
   sortByPoints() {
     this.pointsClickCount++;
     if (this.pointsClickCount % 2 !== 0) {
-      return this.coursesFiltered().sort((a, b) => {return a.points - b.points});
+      return this.coursesFiltered().sort((a, b) => { return a.points - b.points });
     } else {
-      return this.coursesFiltered().sort((a, b) => {return b.points - a.points});
+      return this.coursesFiltered().sort((a, b) => { return b.points - a.points });
     }
   }
 
-    //sortering efter ämne, växlar mellan stigande och fallande ordning
+  //sortering efter ämne, växlar mellan stigande och fallande ordning
   sortBySubject() {
     this.subjectClickCount++;
     if (this.subjectClickCount % 2 !== 0) {
