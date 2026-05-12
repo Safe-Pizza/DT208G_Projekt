@@ -9,7 +9,7 @@
         <label for="subject">Ämne: </label><br>
         <select id="subject" [value]="optionInput()" (change)="optionInput.set($any($event.target).value)">
             <option value="">Välj ämne</option>
-             @for (subject of coursesFiltered(); track $index) {
+             @for (subject of uniqueSubjects(); track subject.subjectCode) {
             <option [value]="subject.subjectCode">{{ subject.subject }}</option>
             }
         </select>

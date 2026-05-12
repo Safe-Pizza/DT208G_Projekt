@@ -24,20 +24,19 @@ export class Courses {
   allCourses: number = 0; //totalt antal kurser
   counter: number = 0; //antal visade kurser
 
-
-  //sökinput
-  searchInput = signal("");
-
   //filtrering från söktext
+  searchInput = signal(""); //input
+
   coursesFiltered = computed(() => {
-    const search = this.searchInput().trim().toLowerCase();
-    this.allCourses = this.courses().length;
-    if (!search) {
+    const search = this.searchInput().trim().toLowerCase(); //trimmad input
+    this.allCourses = this.courses().length; //antal kurser i array
+    if (!search) { //kontroll om ej input finns
       this.counter = this.courses().length;
       return this.courses();
     }
 
-    const filteredSearch = this.courses().filter(c =>
+    //om input finns
+    const filteredSearch = this.courses().filter(c => //filtererar utifrån input
       c.courseName.toLowerCase().includes(search) ||
       c.courseCode.toLowerCase().includes(search)
     );
@@ -45,9 +44,22 @@ export class Courses {
     return filteredSearch;
   })
 
+  //unik array för ämnen till select input
+  uniqueSubjects = computed(() =>
+    Array.from(
+      new Map(
+        this.coursesFiltered().map(({ subjectCode, subject }) => [
+          subjectCode,
+          { subjectCode, subject }
+        ])
+      ).values()
+    )
+  );
+
   optionInput = signal("");
 
-  //räknade för sorteringsordning
+  //Sortering
+  //räknare för sorteringsordning
   codeClickCount = 0;
   nameClickCount = 0;
   pointsClickCount = 0;
