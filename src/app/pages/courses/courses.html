@@ -1,13 +1,18 @@
 <h2>Kurser</h2>
-<input 
-    type="text" 
-    id="search" 
-    placeholder="Sök efter kurs..." 
-    [value]="searchInput()"
-    (input)="searchInput.set($any($event.target).value)"
-    >
-<select>
-</select>
+<div class="form">
+    <label for="search">Sök: </label><br>
+    <input type="text" id="search" placeholder="Sök efter kurs..." [value]="searchInput()"
+        (input)="searchInput.set($any($event.target).value)">
+</div>
+<div class="form">
+    <label for="subject">Ämne: </label><br>
+    <select id="subject">
+        <option [value]="">Välj ämne</option>
+        @for (course of coursesFiltered(); track $index;) {
+        <option [ngValue]="">{{ course.subject }}</option>
+        }
+    </select>
+</div>
 
 <table>
     <thead>
@@ -21,14 +26,14 @@
         </tr>
     </thead>
     <tbody>
-        @for (course of coursesFiltered(); track course.courseCode) {
+        @for (course of coursesFiltered(); track $index;) {
         <tr>
             <td>{{ course.courseCode }}</td>
             <td>{{ course.courseName }}</td>
             <td>{{ course.points }}</td>
             <td>{{ course.subject }}</td>
             <td><a href="{{ course.syllabus }}" traget="_blank"><mat-icon>open_in_new</mat-icon></a></td>
-            <td><button class="nobr">Lägg till</button></td>
+            <td><button (click)="courseschemaService.saveToLocalStorage(course)" class="nobr">Lägg till</button></td>
         </tr>
         }
 
