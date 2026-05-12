@@ -13,6 +13,7 @@
         }
     </select>
 </div>
+<div>Visar {{ counter }} kurser av totalt {{ allCourses }}.</div>
 
 <table>
     <thead>
@@ -25,8 +26,9 @@
             <th class="nobr">Lägg till</th>
         </tr>
     </thead>
+
     <tbody>
-        @for (course of coursesFiltered(); track $index;) {
+        @for (course of coursesFiltered(); track $index; let count = $count) {
         <tr>
             <td>{{ course.courseCode }}</td>
             <td>{{ course.courseName }}</td>
