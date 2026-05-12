@@ -6,10 +6,10 @@
 </div>
 <div class="form">
     <label for="subject">Ämne: </label><br>
-    <select id="subject">
-        <option [value]="">Välj ämne</option>
+    <select id="subject" [value]="optionInput()" (change)="optionInput.set($any($event.target).value)">
+        <option value="">Välj ämne</option>
         @for (course of coursesFiltered(); track $index;) {
-        <option [ngValue]="">{{ course.subject }}</option>
+        <option value="{{ course.subjectCode }}">{{ course.subject }}</option>
         }
     </select>
 </div>
@@ -18,17 +18,17 @@
 <table>
     <thead>
         <tr>
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Poäng</th>
-            <th>Ämne</th>
+            <th class="sort" (click)="sortByCode()">Kurskod</th>
+            <th class="sort" (click)="sortByName()">Kursnamn</th>
+            <th class="sort" (click)="sortByPoints()">Poäng</th>
+            <th class="sort" (click)="sortBySubject()">Ämne</th>
             <th>Kursplan</th>
             <th class="nobr">Lägg till</th>
         </tr>
     </thead>
 
     <tbody>
-        @for (course of coursesFiltered(); track $index; let count = $count) {
+        @for (course of coursesFiltered(); track $index;) {
         <tr>
             <td>{{ course.courseCode }}</td>
             <td>{{ course.courseName }}</td>

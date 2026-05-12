@@ -48,20 +48,53 @@ export class Courses {
 
   coursesFilteredBySubject = computed(() => {
     const option = this.optionInput().trim().toLowerCase();
-    if (!option) {
-      return this.courses();
-    }
 
-    return this.courses().filter(c =>
-      c.subjectCode.toLowerCase().includes(option)
-    );
+    console.log(option);
   })
 
-  /*coursesCategorized(): Course[] {
-    const subject = this.optionInput.trim().toLocaleLowerCase();
+  //räknade för sorteringsordning
+  codeClickCount = 0;
+  nameClickCount = 0;
+  pointsClickCount = 0;
+  subjectClickCount = 0;
 
-    return this.courses().filter(s =>
-      s.subjectCode.toLocaleLowerCase().includes(subject)
-    );
-  }*/
+  //sortering efter kurskod, växlar mellan stigande och fallande ordning
+  sortByCode() {
+    this.codeClickCount++;
+    if (this.codeClickCount % 2 !== 0) {
+      return this.coursesFiltered().sort((a, b) => a.courseCode.localeCompare(b.courseCode));
+    } else {
+      return this.coursesFiltered().sort((a, b) => b.courseCode.localeCompare(a.courseCode));
+    }
+  }
+
+  //sortering efter kursnamn, växlar mellan stigande och fallande ordning
+  sortByName() {
+    this.nameClickCount++;
+    if (this.nameClickCount % 2 !== 0) {
+      return this.coursesFiltered().sort((a, b) => a.courseName.localeCompare(b.courseName));
+    } else {
+      return this.coursesFiltered().sort((a, b) => b.courseName.localeCompare(a.courseName));
+    }
+  }
+
+  //sortering efter poäng, växlar mellan stigande och fallande ordning
+  sortByPoints() {
+    this.pointsClickCount++;
+    if (this.pointsClickCount % 2 !== 0) {
+      return this.coursesFiltered().sort((a, b) => {return a.points - b.points});
+    } else {
+      return this.coursesFiltered().sort((a, b) => {return b.points - a.points});
+    }
+  }
+
+    //sortering efter ämne, växlar mellan stigande och fallande ordning
+  sortBySubject() {
+    this.subjectClickCount++;
+    if (this.subjectClickCount % 2 !== 0) {
+      return this.coursesFiltered().sort((a, b) => a.subject.localeCompare(b.subject));
+    } else {
+      return this.coursesFiltered().sort((a, b) => b.subject.localeCompare(a.subject));
+    }
+  }
 }
