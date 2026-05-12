@@ -11,8 +11,32 @@ export class CourseschemaService {
     this.courses = [];
   }
 
-  saveToLocalStorage(course: Course): void {
-    localStorage.setItem("courses", JSON.stringify(course)); //spara till localstorge
+  addCourseToSchema(course: Course): boolean {
+    //skapa ny kurs
+    const newCourse: Course = {
+      courseCode: course.courseCode,
+      subjectCode: course.subjectCode,
+      level: course.level,
+      progression: course.progression,
+      courseName: course.courseName,
+      points: course.points,
+      institutionCode: course.institutionCode,
+      subject: course.subject,
+      syllabus: course.syllabus
+    }
+
+    //push till todos array
+    this.courses.push(newCourse);
+    this.saveToLocalStorage(this.courses);
+    return true;
+  }
+
+  saveToLocalStorage(courses: Course[]): void {
+    localStorage.setItem("courses", JSON.stringify(courses)); //spara till localstorge
+  }
+
+  getCourses(): Course[] {
+    return this.courses; //returnerar kurs-array
   }
 
   loadFromLocalStorage(): void {
