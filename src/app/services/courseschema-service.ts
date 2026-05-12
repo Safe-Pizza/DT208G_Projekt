@@ -14,4 +14,12 @@ export class CourseschemaService {
   saveToLocalStorage(course: Course): void {
     localStorage.setItem("courses", JSON.stringify(course)); //spara till localstorge
   }
+
+  loadFromLocalStorage(): void {
+    const storageData = localStorage.getItem("courses"); //hämta från localstorgae
+
+    if (storageData) {
+      this.courses = JSON.parse(storageData); //konvertera till objekt
+    }
+  }
 }
