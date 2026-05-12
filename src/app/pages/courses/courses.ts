@@ -28,19 +28,27 @@ export class Courses {
   searchInput = signal(""); //input
 
   coursesFiltered = computed(() => {
-    const search = this.searchInput().trim().toLowerCase(); //trimmad input
+    const search = this.searchInput().trim().toLowerCase(); //trimmad input sök
+    const selectOption = this.optionInput(); //input select option
     this.allCourses = this.courses().length; //antal kurser i array
-    if (!search) { //kontroll om ej input finns
-      this.counter = this.courses().length;
-      return this.courses();
-    }
+    this.counter = this.courses().length; //antal vid filter
 
-    //om input finns
-    const filteredSearch = this.courses().filter(c => //filtererar utifrån input
-      c.courseName.toLowerCase().includes(search) ||
-      c.courseCode.toLowerCase().includes(search)
-    );
-    this.counter = filteredSearch.length;
+    const filteredSearch = this.courses().filter(course => {
+
+      // sökfilter
+      const matchesSearch =
+        course.courseName.toLowerCase().includes(search) ||
+        course.courseCode.toLowerCase().includes(search);
+
+      // ämnesfilter
+      const matchesSubject =
+        !selectOption ||
+        course.subjectCode === selectOption;
+
+      return matchesSearch && matchesSubject;
+    });
+
+    this.counter = filteredSearch.length; //antal vid filter
     return filteredSearch;
   })
 
