@@ -16,6 +16,6 @@ export class Courseschema {
     this.courseschemaService.loadFromLocalStorage();
     const courses = this.courseschemaService.getCourses();
 
-    console.log(courses);
+    return courses;
   }
 }

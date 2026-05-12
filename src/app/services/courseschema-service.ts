@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Signal } from '@angular/core';
 import { Course } from '../interfaces/course';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -44,6 +45,19 @@ export class CourseschemaService {
 
     if (storageData) {
       this.courses = JSON.parse(storageData); //konvertera till objekt
+    }
+  }
+
+  removeFromLocalStorage(index: number): void {
+    const loadedCourses = this.courses; //hämta todosarray
+
+    if (loadedCourses.length === 1) { //kontroll om array är endas ett värde
+      localStorage.clear(); //töm localstorage
+      this.courses = []; // töm todos array
+    } else {
+      loadedCourses.splice(index, 1); //ta bort värde ur array
+
+      this.saveToLocalStorage(loadedCourses); //spara ny array till localstorage
     }
   }
 }
