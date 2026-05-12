@@ -1,8 +1,14 @@
 @use '../../../CSS/variables';
 @use 'sass:color';
 
+.forms {
+    display: grid;
+    grid-template-columns: 30% 60%;
+    column-gap: 10%;
+}
+
 input {
-    width: 50%;
+    width: 100%;
     box-sizing: border-box;
     padding: 10px;
     margin-bottom: 2em;
@@ -13,7 +19,7 @@ input {
 }
 
 select {
-    width: 40%;
+    width: 100%;
     box-sizing: border-box;
     padding: 10px;
     margin-bottom: 2em;
@@ -38,7 +44,8 @@ table {
     }
 
     th {
-        padding-right: 10px;
+        padding: 1em;
+        padding-left: 0;
     }
 
     tbody tr:hover {
@@ -51,6 +58,10 @@ table {
     }
 }
 
+.sort {
+    cursor: pointer;
+    text-decoration: underline;
+}
 .nobr {
     white-space: nowrap;
 }

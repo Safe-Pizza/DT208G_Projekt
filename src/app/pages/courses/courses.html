@@ -1,17 +1,19 @@
 <h2>Kurser</h2>
-<div class="form">
-    <label for="search">Sök: </label><br>
-    <input type="text" id="search" placeholder="Sök efter kurs..." [value]="searchInput()"
-        (input)="searchInput.set($any($event.target).value)">
-</div>
-<div class="form">
-    <label for="subject">Ämne: </label><br>
-    <select id="subject" [value]="optionInput()" (change)="optionInput.set($any($event.target).value)">
-        <option value="">Välj ämne</option>
-        @for (course of coursesFiltered(); track $index;) {
-        <option value="{{ course.subjectCode }}">{{ course.subject }}</option>
-        }
-    </select>
+<div class="forms">
+    <div>
+        <label for="search">Sök: </label><br>
+        <input type="text" id="search" placeholder="Sök efter kurs..." [value]="searchInput()"
+            (input)="searchInput.set($any($event.target).value)">
+    </div>
+    <div>
+        <label for="subject">Ämne: </label><br>
+        <select id="subject" [value]="optionInput()" (change)="optionInput.set($any($event.target).value)">
+            <option value="">Välj ämne</option>
+            @for (course of coursesFiltered(); track $index;) {
+            <option value="{{ course.subjectCode }}">{{ course.subject }}</option>
+            }
+        </select>
+    </div>
 </div>
 <div>Visar {{ counter }} kurser av totalt {{ allCourses }}.</div>
 
