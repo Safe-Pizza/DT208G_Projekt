@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CourseschemaService } from '../../services/courseschema-service';
+import { Course } from '../../interfaces/course';
 
 @Component({
   selector: 'app-courseschema',
@@ -12,10 +13,14 @@ export class Courseschema {
   //Tillgång till service
     courseschemaService = inject(CourseschemaService)
 
+    courses: Course[] = []
+
+    points: number = 0;
+
   ngOnInit() {
     this.courseschemaService.loadFromLocalStorage();
-    const courses = this.courseschemaService.getCourses();
+    this.courses = this.courseschemaService.getCourses();
 
-    return courses;
+    this.points = this.courseschemaService.countCoursePoint();
   }
 }

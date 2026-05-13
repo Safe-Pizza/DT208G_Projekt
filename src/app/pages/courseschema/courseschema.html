@@ -13,7 +13,7 @@
     </thead>
     <tbody>
 
-        @for (course of ngOnInit(); track $index;) {
+        @for (course of courses; track $index;) {
         <tr>
             <td>{{ course.courseCode }}</td>
             <td>{{ course.courseName }}</td>
@@ -23,6 +23,7 @@
             <td><button (click)="courseschemaService.removeFromLocalStorage($index)" class="nobr">Ta bort</button></td>
         </tr>
         }
-        
+
     </tbody>
+    <tfoot>Total poäng: {{ points }}</tfoot>
 </table>

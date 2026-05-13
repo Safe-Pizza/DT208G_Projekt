@@ -20,12 +20,17 @@ export class Courses {
   //hämtar kurserna från service
   courses = this.coursesService.getCourses();
 
+  //unik array för ämnen till select input
+  uniqueSubjects = computed(() =>
+    Array.from(new Map(this.coursesFiltered().map(({ subjectCode, subject }) => [subjectCode, { subjectCode, subject }])).values()));
+
   //variabler för antal kurser
   allCourses: number = 0; //totalt antal kurser
   counter: number = 0; //antal visade kurser
 
   //filtrering från söktext
-  searchInput = signal(""); //input
+  searchInput = signal(""); //input  
+  optionInput = signal("");
 
   coursesFiltered = computed(() => {
     const search = this.searchInput().trim().toLowerCase(); //trimmad input sök
@@ -51,20 +56,6 @@ export class Courses {
     this.counter = filteredSearch.length; //antal vid filter
     return filteredSearch;
   })
-
-  //unik array för ämnen till select input
-  uniqueSubjects = computed(() =>
-    Array.from(
-      new Map(
-        this.coursesFiltered().map(({ subjectCode, subject }) => [
-          subjectCode,
-          { subjectCode, subject }
-        ])
-      ).values()
-    )
-  );
-
-  optionInput = signal("");
 
   //Sortering
   //räknare för sorteringsordning

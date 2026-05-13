@@ -1,6 +1,5 @@
 import { Injectable, Signal } from '@angular/core';
 import { Course } from '../interfaces/course';
-import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +12,10 @@ export class CourseschemaService {
   }
 
   addCourseToSchema(course: Course): boolean {
+    //kontroll
+    this.loadFromLocalStorage();
+    const storedCourses = this.getCourses();
+
     //skapa ny kurs
     const newCourse: Course = {
       courseCode: course.courseCode,
@@ -26,10 +29,12 @@ export class CourseschemaService {
       syllabus: course.syllabus
     }
 
-    //push till todos array
-    this.courses.push(newCourse);
-    this.saveToLocalStorage(this.courses);
-    return true;
+    if (!storedCourses.some(c => c.courseCode === newCourse.courseCode)) {
+      //push till todos array
+      this.courses.push(newCourse);
+      this.saveToLocalStorage(this.courses);
+      return true;
+    } else return false;
   }
 
   saveToLocalStorage(courses: Course[]): void {
@@ -38,6 +43,15 @@ export class CourseschemaService {
 
   getCourses(): Course[] {
     return this.courses; //returnerar kurs-array
+  }
+
+  countCoursePoint(): number {
+    let sumPoints: number = 0;
+
+    this.courses.forEach(c => {
+      sumPoints = sumPoints + c.points;
+    })
+    return sumPoints;
   }
 
   loadFromLocalStorage(): void {
