@@ -103,4 +103,10 @@ export class Courses {
       return this.coursesFiltered().sort((a, b) => b.subject.localeCompare(a.subject));
     }
   }
+
+  addButtonClicked(button: any) {
+    button.textContent = "Tillagd";
+    button.disabled = true;
+    button.classList.add("button-disabled");
+  }
 }

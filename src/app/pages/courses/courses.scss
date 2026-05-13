@@ -69,3 +69,7 @@ table {
 button {
     @include variables.button;
 }
+
+.button-disabled {
+    background-color: variables.$button-disabled;
+}
