@@ -17,6 +17,7 @@ table {
 
     th {
         padding-right: 10px;
+        font-size: 1.6em;
     }
 
     tbody tr:hover {
@@ -26,6 +27,17 @@ table {
     td {
         padding: 10px;
         border-bottom: 1px solid lightgray;
+        font-size: 1.4em;
+    }
+}
+
+tfoot {
+    tr {
+        font-size: 1.4em;
+    }
+    td {
+        padding: 1em;
+        border: none;
     }
 }
 
@@ -35,4 +47,10 @@ table {
 
 button {
     @include variables.button;
+}
+
+@media screen and (max-width: 601px) {
+    body {
+        font-size: 1em;
+    }
 }
