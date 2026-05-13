@@ -11,16 +11,26 @@ import { Course } from '../../interfaces/course';
 })
 export class Courseschema {
   //Tillgång till service
-    courseschemaService = inject(CourseschemaService)
+  courseschemaService = inject(CourseschemaService);
 
-    courses: Course[] = []
+  courses: Course[] = []
 
-    points: number = 0;
+  points: number = 0;
 
   ngOnInit() {
+    this.getCourses()
+  }
+
+  getCourses() {
+    //hämta kurser från local storage
     this.courseschemaService.loadFromLocalStorage();
     this.courses = this.courseschemaService.getCourses();
 
+    this.countCoursePoint();
+  }
+
+  //uppdatering av kurspoäng till DOM
+  countCoursePoint() {
     this.points = this.courseschemaService.countCoursePoint();
   }
 }

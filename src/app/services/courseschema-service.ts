@@ -63,11 +63,13 @@ export class CourseschemaService {
   }
 
   removeFromLocalStorage(index: number): void {
-    const loadedCourses = this.courses; //hämta todosarray
+    let loadedCourses = this.courses;
 
     if (loadedCourses.length === 1) { //kontroll om array är endas ett värde
       localStorage.clear(); //töm localstorage
-      this.courses = []; // töm todos array
+      this.courses = [];
+
+      this.saveToLocalStorage(this.getCourses());
     } else {
       loadedCourses.splice(index, 1); //ta bort värde ur array
 
