@@ -13,23 +13,27 @@ export class Courseschema {
   //Tillgång till service
   courseschemaService = inject(CourseschemaService);
 
+  //variabel för kurser
   courses: Course[] = []
 
+  //variabel för kurspoäng
   points: number = 0;
 
+  //funktion vid init
   ngOnInit() {
     this.getCourses()
   }
 
+  //hämta och lagra kurser från localStorage
   getCourses() {
     //hämta kurser från local storage
     this.courseschemaService.loadFromLocalStorage();
     this.courses = this.courseschemaService.getCourses();
 
-    this.countCoursePoint();
+    this.countCoursePoint(); //beräkna kurspoäng
   }
 
-  //uppdatering av kurspoäng till DOM
+  //beräknar och lagrar kurspoäng
   countCoursePoint() {
     this.points = this.courseschemaService.countCoursePoint();
   }

@@ -37,7 +37,7 @@
             <td>{{ course.points }}</td>
             <td>{{ course.subject }}</td>
             <td><a href="{{ course.syllabus }}" traget="_blank"><mat-icon>open_in_new</mat-icon></a></td>
-            <td><button id="{{ course.courseCode }}" (click)="courseschemaService.addCourseToSchema(course); addButtonClicked($event.target)" class="nobr">Lägg till</button></td>
+            <td><button id="{{ course.courseCode }}" (click)="addCourseToSchema(course)" [disabled]="course.added" [class.button-disable]="course.added" class="nobr">{{ course.added ? 'Tillagd' : 'Lägg till' }}</button></td>
         </tr>
         }
 

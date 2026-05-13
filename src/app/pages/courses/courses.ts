@@ -3,6 +3,7 @@ import { CoursesService } from '../../services/courses-service';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { CourseschemaService } from '../../services/courseschema-service';
+import { Course } from '../../interfaces/course';
 
 @Component({
   selector: 'app-courses',
@@ -104,9 +105,16 @@ export class Courses {
     }
   }
 
+  addCourseToSchema(course: Course) {
+    this.courseschemaService.addCourseToSchema(course);
+    course.added = true;
+  }
+
   addButtonClicked(button: any) {
-    button.textContent = "Tillagd";
-    button.disabled = true;
-    button.classList.add("button-disabled");
+    const buttonEl = document.getElementById(button) as HTMLButtonElement;
+    console.log(buttonEl + button);
+    buttonEl.textContent = "Tillagd";
+    buttonEl.disabled = true;
+    buttonEl.classList.add("button-disabled");
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable, Signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Course } from '../interfaces/course';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class CourseschemaService {
     this.courses = [];
   }
 
+  //funktion för att lägga till kurs i ramschema
   addCourseToSchema(course: Course): boolean {
     //kontroll
     this.loadFromLocalStorage();
@@ -29,6 +30,7 @@ export class CourseschemaService {
       syllabus: course.syllabus
     }
 
+    //kontroll om kurs redan finns i localStorage
     if (!storedCourses.some(c => c.courseCode === newCourse.courseCode)) {
       //push till todos array
       this.courses.push(newCourse);
@@ -37,31 +39,36 @@ export class CourseschemaService {
     } else return false;
   }
 
+  //spara till localStorage
   saveToLocalStorage(courses: Course[]): void {
     localStorage.setItem("courses", JSON.stringify(courses)); //spara till localstorge
   }
 
+  //Hämta kurs-array
   getCourses(): Course[] {
     return this.courses; //returnerar kurs-array
   }
 
+  //räkna total kurspoäng
   countCoursePoint(): number {
-    let sumPoints: number = 0;
+    let sumPoints: number = 0; //variabel för summa av kurspoäng
 
-    this.courses.forEach(c => {
+    this.getCourses().forEach(c => { //loop som summerar poäng från kurserna
       sumPoints = sumPoints + c.points;
     })
     return sumPoints;
   }
 
+  //hämta från localStorage, lagra i kurs-variabel
   loadFromLocalStorage(): void {
-    const storageData = localStorage.getItem("courses"); //hämta från localstorgae
+    const storageData = localStorage.getItem("courses");
 
     if (storageData) {
-      this.courses = JSON.parse(storageData); //konvertera till objekt
+      this.courses = JSON.parse(storageData); //konvertera till objekt och lagra i variabel
     }
   }
 
+  //ta bort kurs från localStorage
   removeFromLocalStorage(index: number): void {
     let loadedCourses = this.courses;
 
