@@ -20,6 +20,18 @@ $heading-color-dark: #EBEBEB;
 $accent-color-dark: #DF7F01;
 $accent-second-dark: #C547FF;
 
+//Font-sizes
+$fontsize-h1: 6em;
+$fontsize-h2: 4em;
+$fontsize-p: 1em;
+$fontsize-nav: 1.4em;
+
+//font-sizes media max-width 800px
+$fontsize-h1-mobile: 4em;
+$fontsize-h2-mobile: 2.5em;
+$fontsize-p-mobile: 0.8rem;
+$fontsize-nav-mobile: 1em;
+
 @mixin button {
     min-width: 75px;
     padding: 1em;

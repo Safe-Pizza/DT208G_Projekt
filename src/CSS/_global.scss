@@ -1,6 +1,7 @@
 @use './variables';
+
 :root {
-        font-size: 67.5%;
+    font-size: 62.5%;
 }
 
 body {
@@ -21,6 +22,102 @@ main {
     background-color: variables.$main-color;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2 {
     color: variables.$heading-color;
+}
+
+//Font sizes
+h1 {
+    font-size: variables.$fontsize-h1;
+}
+
+h2 {
+    font-size: variables.$fontsize-h2;
+}
+
+p {
+    font-size: variables.$fontsize-p;
+}
+
+nav {
+    font-size: variables.$fontsize-nav;
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+    //Font sizes
+    h1 {
+        font-size: variables.$fontsize-h1-mobile;
+    }
+
+    h2 {
+        font-size: variables.$fontsize-h2-mobile;
+    }
+
+    p {
+        font-size: variables.$fontsize-p-mobile;
+    }
+
+    nav {
+        font-size: variables.$fontsize-nav-mobile;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+
+    //Font sizes
+    h1 {
+        font-size: variables.$fontsize-h1-mobile;
+    }
+
+    h2 {
+        font-size: variables.$fontsize-h2-mobile;
+    }
+
+    p {
+        font-size: variables.$fontsize-p-mobile;
+    }
+
+    nav {
+        font-size: variables.$fontsize-nav-mobile;
+    }
+
+    tr,
+    td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    thead {
+        display: none !important;
+    }
+
+    tr {
+        border-bottom: 1px solid lightgrey;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+    }
+
+    tr:first-child {
+        border-top: 1px solid lightgrey;
+    }
+
+    td {
+        border-bottom: none !important;
+        padding-left: 1em;
+    }
+
+    td::before {
+        content: attr(data-title);
+        font-weight: bold;
+        padding-right: 1em;
+    }
+
+    td:last-child::before {
+        padding-right: 0px;
+    }
 }
