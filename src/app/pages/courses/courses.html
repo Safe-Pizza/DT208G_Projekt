@@ -9,37 +9,41 @@
         <label for="subject">Ämne: </label><br>
         <select id="subject" [value]="optionInput()" (change)="optionInput.set($any($event.target).value)">
             <option value="">Välj ämne</option>
-             @for (subject of uniqueSubjects(); track subject.subjectCode) {
+            @for (subject of uniqueSubjects(); track subject.subjectCode) {
             <option [value]="subject.subjectCode">{{ subject.subject }}</option>
             }
         </select>
     </div>
 </div>
 <div>Visar {{ counter }} kurser av totalt {{ allCourses }}.</div>
+<div id="container-table">
+    <table>
+        <thead>
+            <tr>
+                <th class="sort" (click)="sortByCode()">Kurskod</th>
+                <th class="sort" (click)="sortByName()">Kursnamn</th>
+                <th class="sort" (click)="sortByPoints()">Poäng</th>
+                <th class="sort" (click)="sortBySubject()">Ämne</th>
+                <th>Kursplan</th>
+                <th class="nobr">Lägg till</th>
+            </tr>
+        </thead>
 
-<table>
-    <thead>
-        <tr>
-            <th class="sort" (click)="sortByCode()">Kurskod</th>
-            <th class="sort" (click)="sortByName()">Kursnamn</th>
-            <th class="sort" (click)="sortByPoints()">Poäng</th>
-            <th class="sort" (click)="sortBySubject()">Ämne</th>
-            <th>Kursplan</th>
-            <th class="nobr">Lägg till</th>
-        </tr>
-    </thead>
+        <tbody>
+            @for (course of coursesFiltered(); track $index;) {
+            <tr>
+                <td data-title="Kurskod">{{ course.courseCode }}</td>
+                <td data-title="Kursnamn">{{ course.courseName }}</td>
+                <td data-title="Poäng">{{ course.points }}</td>
+                <td data-title="Ämne">{{ course.subject }}</td>
+                <td data-title="Kursplan"><a href="{{ course.syllabus }}"
+                        traget="_blank"><mat-icon>open_in_new</mat-icon></a></td>
+                <td><button id="{{ course.courseCode }}" (click)="addCourseToSchema(course)" [disabled]="course.added"
+                        [class.button-disable]="course.added" class="nobr">{{ course.added ? 'Tillagd' : 'Lägg till'
+                        }}</button></td>
+            </tr>
+            }
 
-    <tbody>
-        @for (course of coursesFiltered(); track $index;) {
-        <tr>
-            <td data-title="Kurskod">{{ course.courseCode }}</td>
-            <td data-title="Kursnamn">{{ course.courseName }}</td>
-            <td data-title="Poäng">{{ course.points }}</td>
-            <td data-title="Ämne">{{ course.subject }}</td>
-            <td data-title="Kursplan"><a href="{{ course.syllabus }}" traget="_blank"><mat-icon>open_in_new</mat-icon></a></td>
-            <td><button id="{{ course.courseCode }}" (click)="addCourseToSchema(course)" [disabled]="course.added" [class.button-disable]="course.added" class="nobr">{{ course.added ? 'Tillagd' : 'Lägg till' }}</button></td>
-        </tr>
-        }
-
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>

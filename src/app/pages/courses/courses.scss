@@ -32,9 +32,13 @@ mat-icon {
     color: variables.$accent-color;
 }
 
+#container-table {
+    max-width: 100%;
+}
+
 table {
     border-collapse: collapse;
-    width: 100%;
+    max-width: 100%;
 }
 
 table {
