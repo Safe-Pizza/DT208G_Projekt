@@ -2,4 +2,11 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 5em 1em 4em 1em;
+    max-height: 350px;
+}
+
+@media screen and (max-width: 1200px) {
+    header {
+        min-height: 150px;
+    }
 }

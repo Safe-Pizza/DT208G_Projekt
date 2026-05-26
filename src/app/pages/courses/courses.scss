@@ -3,7 +3,7 @@
 
 .forms {
     display: grid;
-    grid-template-columns: 30% 60%;
+    grid-template-columns: 35% 55%;
     column-gap: 10%;
 }
 
@@ -91,16 +91,26 @@ button {
     justify-content: space-between;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1070px) {
     #page-schema {
         display: none;
         position: absolute;
-        top: 0;
-        right: 2em;
+        top: 1em;
+        right: 1em;
         box-sizing: border-box;
-        width: 500px;
+        max-width: 600px;
+        max-height: 300px;
+        overflow-y: scroll;
+        scrollbar-width: thin;
         padding: 1em;
         height: auto;
-        font-size: 0.4em;
+        font-size: 0.5em;
+        border: 1px solid lightgrey;
+    }
+}
+
+@media screen and (max-width: 1069px) {
+    #show-schema {
+        display: none;
     }
 }

@@ -136,10 +136,10 @@ export class Courses {
 
     if (divEl.style.display === "block") {
       divEl.style.display = "none";
-      buttonSchemaEl.innerHTML = "Stäng ramschema";
+      buttonSchemaEl.innerHTML = "Visa ramschema";
     } else {
       divEl.style.display = "block";
-      buttonSchemaEl.innerHTML = "Visa ramschema";
+      buttonSchemaEl.innerHTML = "Stäng ramschema";
     }
   }
 }
