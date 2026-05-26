@@ -1,0 +1,18 @@
+<section><h2>Välkommen till NGs Universitet</h2>
+<p>På NGs Universitet formar du din utbildning utifrån dina mål, intressen och framtidsplaner. Här kombineras moderna
+    utbildningar, flexibel studietakt och ett digitalt campus där du enkelt kan utforska kurser, bygga ditt eget
+    kursschema och följa din studieväg från start till examen.</p>
+<p>Bläddra bland alla våra kurser och lägg till dem i ett ramschema för att få en översikt och räkna ihop sammanlagda kurspoäng.</p>
+<div id="container-image">
+    <img src="{{ homeImage }}" alt="">
+</div>
+</section>
+<section>
+    <h3>Våra olika ämnen</h3>
+    <p>På NGs Universitet har vi många olika ämnen att välja ifrån. Utbudet av kurser inom de olika ämnena är brett för att ge dig största möjlighet till en så bred utbildning som önskas.</p>
+<ul>
+            @for (subject of uniqueSubjects(); track subject.subjectCode) {
+            <li>{{ subject.subject }}</li>
+            }
+</ul>
+</section>

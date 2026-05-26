@@ -30,7 +30,7 @@
         </thead>
 
         <tbody>
-            @for (course of coursesFiltered(); track $index;) {
+            @for (course of coursesFiltered(); track course.courseCode && $index;) {
             <tr>
                 <td data-title="Kurskod">{{ course.courseCode }}</td>
                 <td data-title="Kursnamn">{{ course.courseName }}</td>

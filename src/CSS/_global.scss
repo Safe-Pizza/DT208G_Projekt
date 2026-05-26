@@ -9,7 +9,7 @@ body {
     background-color: variables.$bg-color;
     color: variables.$font-color;
     font-size: 1.5em;
-    line-height: 1.6em;
+    line-height: 1.8em;
 }
 
 .container {
@@ -23,8 +23,13 @@ main {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     color: variables.$heading-color;
+}
+
+p {
+    max-width: 65ch;
 }
 
 //Font sizes
@@ -34,6 +39,10 @@ h1 {
 
 h2 {
     font-size: variables.$fontsize-h2;
+}
+
+h3 {
+    font-size: variables.$fontsize-h3;
 }
 
 p {
@@ -53,6 +62,10 @@ nav {
 
     h2 {
         font-size: variables.$fontsize-h2-tablet;
+    }
+
+    h3 {
+        font-size: variables.$fontsize-h3-tablet;
     }
 
     p {
@@ -85,6 +98,10 @@ nav {
 
     h2 {
         font-size: variables.$fontsize-h2-mobile;
+    }
+
+    h3 {
+        font-size: variables.$fontsize-h3-mobile;
     }
 
     p {
@@ -156,7 +173,8 @@ nav {
     }
 
     h1,
-    h2 {
+    h2,
+    h3 {
         color: variables.$heading-color-dark;
     }
 
