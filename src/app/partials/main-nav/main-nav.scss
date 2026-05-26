@@ -33,3 +33,20 @@ nav {
 li.current-page {
     background-color: variables.$main-color;
 }
+
+@media (prefers-color-scheme: dark) {
+    nav {
+        a {
+            color: variables.$font-color-dark;
+        }
+
+        a:hover {
+            color: variables.$accent-color-dark;
+        }
+    }
+
+    li.current-page {
+        background-color: variables.$main-color-dark;
+    }
+
+}

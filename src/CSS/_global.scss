@@ -44,7 +44,6 @@ nav {
     font-size: variables.$fontsize-nav;
 }
 
-
 @media screen and (min-width: 820px) and (max-width: 1200px) {
 
     //Font sizes
@@ -69,8 +68,10 @@ nav {
     }
 
     //Table
-    
-    th, td, tr {
+
+    th,
+    td,
+    tr {
         font-size: 1em !important;
     }
 }
@@ -99,8 +100,10 @@ nav {
     }
 
     //Table
-    
-    th, td, tr {
+
+    th,
+    td,
+    tr {
         font-size: 1em !important;
     }
 
@@ -140,4 +143,22 @@ nav {
     td:last-child::before {
         padding-right: 0px;
     }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: variables.$bg-color-dark;
+        color: variables.$font-color-dark;
+    }
+
+    main {
+        background-color: variables.$main-color-dark;
+    }
+
+    h1,
+    h2 {
+        color: variables.$heading-color-dark;
+    }
+
+
 }
