@@ -1,3 +1,24 @@
+@use '../../../CSS/variables';
+
 img {
     max-width: 100%;
+}
+
+section {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        box-shadow: 2px 1px 5px rgba(255, 255, 255, 0.422);
+    }
+    li:hover {
+        transform: scale(1.1);
+        border-color: variables.$accent-color;
+    }
 }
