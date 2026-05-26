@@ -43,6 +43,7 @@ $fontsize-nav-mobile: 1em;
 
 @mixin button {
     min-width: 75px;
+    max-height: 50px;
     padding: 1em;
     background-color: $accent-color;
     border-radius: 5px;

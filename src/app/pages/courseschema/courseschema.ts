@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CourseschemaService } from '../../services/courseschema-service';
 import { Course } from '../../interfaces/course';
@@ -36,5 +36,11 @@ export class Courseschema {
   //beräknar och lagrar kurspoäng
   countCoursePoint() {
     this.points = this.courseschemaService.countCoursePoint();
+  }
+
+  //uppdatering av sida triggad från courses
+  @Input() reload!: boolean;
+  ngOnChanges() {
+    this.getCourses();
   }
 }

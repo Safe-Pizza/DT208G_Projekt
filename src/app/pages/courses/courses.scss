@@ -56,6 +56,7 @@ table {
     tr {
         max-width: 100%;
     }
+
     tbody tr:hover {
         background-color: #04434329;
     }
@@ -82,4 +83,24 @@ button {
 
 .button-disabled {
     background-color: variables.$button-disabled;
+}
+
+#grid-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1000px) {
+    #page-schema {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 2em;
+        box-sizing: border-box;
+        width: 500px;
+        padding: 1em;
+        height: auto;
+        font-size: 0.4em;
+    }
 }
