@@ -2,7 +2,7 @@
 Detta är en projektuppgift i _Webbutveckingsprogrammet_ på Mittuniveristetet.
 
 ## Länk till webbplats
-[Min webbplats]()
+[Min webbplats](https://dt208g-projekt-hali.netlify.app/)
 
 ## Syfte
 Projektet har som syfte att omsätta kunskaper från kursen olika moment i ett större sammanhängade projekt men TypeScript och Angular som ramverk.
