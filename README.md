@@ -1,59 +1,85 @@
-# DT208GProjekt
+# Projektuppgift, DT208G Programmering I TypeScript
+Detta är en projektuppgift i _Webbutveckingsprogrammet_ på Mittuniveristetet.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+## Länk till webbplats
+[Min webbplats]()
 
-## Development server
+## Syfte
+Projektet har som syfte att omsätta kunskaper från kursen olika moment i ett större sammanhängade projekt men TypeScript och Angular som ramverk.
 
-To start a local development server, run:
+## Uppgift
+Skapa en webbplats för ett fiktivt universitet där tillgängliga kurser ska listas samt möjlighet att skapa ett ramschema av en uppsättning valda kurser från listan.
+Angular som användas som ramverk och TypeScript som programmeringsspråk. Källkoden ska versionshanteras med Git och webbplatsen ska publiceras på valfri webbhost.
 
-```bash
-ng serve
-```
+### Grundkrav
+* Webbplats skapas med Anuglar och TypeScript,
+* Minst två undersidor, en för att visa kurser och en för skapat ramschema,
+* Komponenter och Routing ska användas,
+* Ramschema ska gå att skapa (inga dubletter),
+* Ramschema ska lagras mha. localStorage,
+* Webbplatsen ska ha ett välarbetat helhetsintryck med resonsiv design,
+* Källkod versionshanteras med Git,
+* Färdig lösning ska publiceras till publik webbhost.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+#### Krav kurslista
+Kurserna ska presenteras på ett tydligt sätt och det ska gå att sortera kurserna på kurskod, kursnamn, poäng och ämne. Filtera kurser på kurskod och kursnamn. Välja kurser utifrån ämne. Lägga till kurser i ramschema. Se antal kurser i aktuell sökning.
 
-## Code scaffolding
+#### Krav ramschema
+Ramschemat ska presenteras på ett tydligt sätt och det ska gå att se valda kurser som lagras i localStorage. Se sammanlagda poäng för valda kurser. Kunna ta bort kurser från ramschemat.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Lösning
+Här kan du läsa om hur uppgiften lösts, vilket innehåll och funktioner som finns på respektive sida samt hur repot kan klonas ned och köras lokalt på din egen dator.
 
-```bash
-ng generate component component-name
-```
+### Startsida (home)
+* **Presentation:** En presentation av Universitetet,
+* **Ämnen:** Alla olika ämnen presenteras.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Kurser (courses)
+* **Lista:** Lista med alla kurser från JSON-data,
+* **Sök:** Sökning/filter med fritext på kurskod och kursnamn,
+* **Filtering:** Filter för ämne från lista,
+* **Sortering:** Sortering vid klick på rubrik (kurskod, kursnamn, poäng, ämne),
+* **Lägg till:** Knapp för lägg till kurs i ramschema (inga dubletter kan lagras),
+* **Visa ramschema:** Knapp för att visa ramschemat i komponent på sidan (min skärmstrl 1000px),
 
-```bash
-ng generate --help
-```
+### Ramschema (courseschema)
+* **Lista:** Lista med kurser som är tillagda i ramschemat,
+* **Ta bort:** Knapp för att ta bort kurser från ramschemat,
+* **Total poäng:** Visar sammanlagd poäng för kurser tillagda i ramschemat,
+* **localStorage:** LocalStorage används för lagring av ramschema,
 
-## Building
+### Extra funktioner
+Nedan listas extra funktioner för uppgiften:
 
-To build the project run:
+* Fler undersidor: Startsida med information om det fiktiva universitetet samt listning av ämnen som erbjuds,
+* Ramschema i komponent: Möjlighet att se ramschemat från kurslistningen (endas vid skärmstorlek över 1000px)
 
-```bash
-ng build
-```
+### Installation
+1. Klona repot
+    ```sh
+    git clone https://github.com/safe-pizza/DT208G_Projekt.git
+    ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2. Gå in i projektmappen
+    ```sh
+    cd DT208G_Projekt
+    ```
 
-## Running unit tests
+3. Installera
+    ```sh
+    npm install
+    ```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+4. Starta en utvecklingsserver
+    ```sh
+    ng serve
+    ```
 
-```bash
-ng test
-```
+Nu finns projektet tillgängligt för dig att köra lokalt på din dator via localhost.
 
-## Running end-to-end tests
+## Kontakt
+ Vill du komma i kontakt med mig?
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Hanna Lindkvist** \
+✉️ [hali2507@student.miun.se](mailto:hali2507@student.miun.se)
