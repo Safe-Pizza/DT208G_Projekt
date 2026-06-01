@@ -64,13 +64,13 @@ export class Courses {
 
   //Sortering
   //räknare för sorteringsordning
-  codeClickCount = 0;
-  nameClickCount = 0;
-  pointsClickCount = 0;
-  subjectClickCount = 0;
+  codeClickCount: number = 0;
+  nameClickCount: number = 0;
+  pointsClickCount: number = 0;
+  subjectClickCount: number = 0;
 
   //sortering efter kurskod, växlar mellan stigande och fallande ordning
-  sortByCode() {
+  sortByCode(): Course[] {
     this.codeClickCount++;
     if (this.codeClickCount % 2 !== 0) {
       return this.coursesFiltered().sort((a, b) => a.courseCode.localeCompare(b.courseCode));
@@ -80,7 +80,7 @@ export class Courses {
   }
 
   //sortering efter kursnamn, växlar mellan stigande och fallande ordning
-  sortByName() {
+  sortByName(): Course[] {
     this.nameClickCount++;
     if (this.nameClickCount % 2 !== 0) {
       return this.coursesFiltered().sort((a, b) => a.courseName.localeCompare(b.courseName));
@@ -90,7 +90,7 @@ export class Courses {
   }
 
   //sortering efter poäng, växlar mellan stigande och fallande ordning
-  sortByPoints() {
+  sortByPoints(): Course[] {
     this.pointsClickCount++;
     if (this.pointsClickCount % 2 !== 0) {
       return this.coursesFiltered().sort((a, b) => { return a.points - b.points });
@@ -100,7 +100,7 @@ export class Courses {
   }
 
   //sortering efter ämne, växlar mellan stigande och fallande ordning
-  sortBySubject() {
+  sortBySubject(): Course[] {
     this.subjectClickCount++;
     if (this.subjectClickCount % 2 !== 0) {
       return this.coursesFiltered().sort((a, b) => a.subject.localeCompare(b.subject));
@@ -110,13 +110,13 @@ export class Courses {
   }
 
   //lägg till kurs i ramschema
-  addCourseToSchema(course: Course) {
+  addCourseToSchema(course: Course): void {
     this.courseschemaService.addCourseToSchema(course);
     course.added = true;
   }
 
   //ändra knapp när kurs tillagd i ramschema
-  addButtonClicked(button: any) {
+  addButtonClicked(button: any): void {
     const buttonEl = document.getElementById(button) as HTMLButtonElement;
     console.log(buttonEl + button);
     buttonEl.textContent = "Tillagd";
@@ -125,12 +125,12 @@ export class Courses {
   }
 
   //trigger för reload
-  triggerReload() {
+  triggerReload(): void {
     this.reload = !this.reload;
   }
 
   //togglefunktion för div med courseschema component
-  toggleSchema() {
+  toggleSchema(): void {
     const buttonSchemaEl = document.getElementById("show-schema") as HTMLButtonElement; //knapp
     const divEl = document.getElementById("page-schema") as HTMLDivElement; //div courseschema
 
