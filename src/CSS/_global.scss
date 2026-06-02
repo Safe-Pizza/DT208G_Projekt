@@ -22,9 +22,12 @@ main {
     background-color: variables.$main-color;
 }
 
-h1,
-h2,
-h3 {
+h1 {
+    font-family: variables.$font-stack-h1;
+    color: variables.$heading-color;
+}
+
+h2, h3 {
     color: variables.$heading-color;
 }
 
