@@ -32,7 +32,7 @@ export class CourseschemaService {
 
     //kontroll om kurs redan finns i localStorage
     if (!storedCourses.some(c => c.courseCode === newCourse.courseCode)) {
-      //push till todos array
+      //push till courses array
       this.courses.push(newCourse);
       this.saveToLocalStorage(this.courses);
       return true;

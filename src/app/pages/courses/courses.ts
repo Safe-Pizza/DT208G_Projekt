@@ -1,4 +1,4 @@
-import { Component, computed, inject, Input, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CoursesService } from '../../services/courses-service';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
